@@ -73,11 +73,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ConfigResult.cs" />
     <Compile Include="Tools\AESEncrypt.cs" />
     <Compile Include="Tools\Base64Codec.cs" />
     <Compile Include="Tools\BaseTool.cs" />
     <Compile Include="Tools\FridaStrReplacer.cs" />
     <Compile Include="ToolType.cs" />
+    <Compile Include="UserConfigEventArgs.cs" />
     <EmbeddedResource Include="FridaHookControl.resx">
       <DependentUpon>FridaHookControl.cs</DependentUpon>
     </EmbeddedResource>

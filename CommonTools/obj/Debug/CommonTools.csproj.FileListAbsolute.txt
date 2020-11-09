@@ -9,3 +9,15 @@ F:\PROJECT\Tools\CommonTools\CommonTools\obj\Debug\CommonTools.exe
 F:\PROJECT\Tools\CommonTools\CommonTools\obj\Debug\CommonTools.pdb
 F:\PROJECT\Tools\CommonTools\CommonTools\obj\Debug\CommonTools.FormFridaScript.resources
 F:\PROJECT\Tools\CommonTools\CommonTools\obj\Debug\CommonTools.FridaHookControl.resources
+F:\PROJECT\Code\CommonTools\CommonTools\bin\Debug\CommonTools.exe.config
+F:\PROJECT\Code\CommonTools\CommonTools\bin\Debug\CommonTools.exe
+F:\PROJECT\Code\CommonTools\CommonTools\bin\Debug\CommonTools.pdb
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.FridaHookControl.resources
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.Form1.resources
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.FormFridaScript.resources
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.FridaModelControl.resources
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.Properties.Resources.resources
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.csproj.GenerateResource.cache
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.csproj.CoreCompileInputs.cache
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.exe
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.pdb

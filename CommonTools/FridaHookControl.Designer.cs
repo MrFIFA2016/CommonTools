@@ -29,52 +29,52 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FridaHookControl));
-            this.tBox_param = new System.Windows.Forms.TextBox();
+            this.tBox_param_java = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.tBox_className = new System.Windows.Forms.TextBox();
+            this.tBox_className_java = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tBox_functionName = new System.Windows.Forms.TextBox();
+            this.tBox_functionName_java = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.dataGridView_Java = new System.Windows.Forms.DataGridView();
-            this.Stack = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.param1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.param2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.param3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.returnVal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.btn_genJavaScript = new System.Windows.Forms.ToolStripButton();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn3 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn4 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.dataGridViewCheckBoxColumn5 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridView_Native = new System.Windows.Forms.DataGridView();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.btn_genNativeScript = new System.Windows.Forms.ToolStripButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.tBox_className_native = new System.Windows.Forms.TextBox();
+            this.tBox_param_native = new System.Windows.Forms.TextBox();
+            this.tBox_functionName_native = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.stackInfo_java = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.param1_java = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.param2_java = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.param3_java = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.retVal_java = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.stackInfo_native = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.param1_native = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.param2_native = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.param3_native = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.retVal_native = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Java)).BeginInit();
             this.toolStrip2.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Native)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tBox_param
+            // tBox_param_java
             // 
-            this.tBox_param.Location = new System.Drawing.Point(71, 76);
-            this.tBox_param.Name = "tBox_param";
-            this.tBox_param.Size = new System.Drawing.Size(227, 28);
-            this.tBox_param.TabIndex = 5;
+            this.tBox_param_java.Location = new System.Drawing.Point(71, 76);
+            this.tBox_param_java.Name = "tBox_param_java";
+            this.tBox_param_java.Size = new System.Drawing.Size(227, 28);
+            this.tBox_param_java.TabIndex = 5;
             // 
             // label3
             // 
@@ -86,12 +86,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "参数：";
             // 
-            // tBox_className
+            // tBox_className_java
             // 
-            this.tBox_className.Location = new System.Drawing.Point(71, 28);
-            this.tBox_className.Name = "tBox_className";
-            this.tBox_className.Size = new System.Drawing.Size(227, 28);
-            this.tBox_className.TabIndex = 1;
+            this.tBox_className_java.Location = new System.Drawing.Point(71, 28);
+            this.tBox_className_java.Name = "tBox_className_java";
+            this.tBox_className_java.Size = new System.Drawing.Size(227, 28);
+            this.tBox_className_java.TabIndex = 1;
             // 
             // label2
             // 
@@ -103,12 +103,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "函数名：";
             // 
-            // tBox_functionName
+            // tBox_functionName_java
             // 
-            this.tBox_functionName.Location = new System.Drawing.Point(397, 28);
-            this.tBox_functionName.Name = "tBox_functionName";
-            this.tBox_functionName.Size = new System.Drawing.Size(143, 28);
-            this.tBox_functionName.TabIndex = 3;
+            this.tBox_functionName_java.Location = new System.Drawing.Point(397, 28);
+            this.tBox_functionName_java.Name = "tBox_functionName_java";
+            this.tBox_functionName_java.Size = new System.Drawing.Size(143, 28);
+            this.tBox_functionName_java.TabIndex = 3;
             // 
             // label1
             // 
@@ -136,9 +136,9 @@
             // 
             this.tabPage1.Controls.Add(this.dataGridView_Java);
             this.tabPage1.Controls.Add(this.toolStrip2);
-            this.tabPage1.Controls.Add(this.tBox_className);
-            this.tabPage1.Controls.Add(this.tBox_param);
-            this.tabPage1.Controls.Add(this.tBox_functionName);
+            this.tabPage1.Controls.Add(this.tBox_className_java);
+            this.tabPage1.Controls.Add(this.tBox_param_java);
+            this.tabPage1.Controls.Add(this.tBox_functionName_java);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label2);
@@ -157,42 +157,17 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_Java.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_Java.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Stack,
-            this.param1,
-            this.param2,
-            this.param3,
-            this.returnVal});
+            this.stackInfo_java,
+            this.param1_java,
+            this.param2_java,
+            this.param3_java,
+            this.retVal_java});
             this.dataGridView_Java.Location = new System.Drawing.Point(6, 130);
             this.dataGridView_Java.MultiSelect = false;
             this.dataGridView_Java.Name = "dataGridView_Java";
             this.dataGridView_Java.RowTemplate.Height = 27;
             this.dataGridView_Java.Size = new System.Drawing.Size(570, 298);
             this.dataGridView_Java.TabIndex = 13;
-            // 
-            // Stack
-            // 
-            this.Stack.HeaderText = "堆栈";
-            this.Stack.Name = "Stack";
-            // 
-            // param1
-            // 
-            this.param1.HeaderText = "参数1";
-            this.param1.Name = "param1";
-            // 
-            // param2
-            // 
-            this.param2.HeaderText = "参数2";
-            this.param2.Name = "param2";
-            // 
-            // param3
-            // 
-            this.param3.HeaderText = "参数3";
-            this.param3.Name = "param3";
-            // 
-            // returnVal
-            // 
-            this.returnVal.HeaderText = "返回值";
-            this.returnVal.Name = "returnVal";
             // 
             // toolStrip2
             // 
@@ -216,14 +191,15 @@
             this.btn_genJavaScript.Name = "btn_genJavaScript";
             this.btn_genJavaScript.Size = new System.Drawing.Size(92, 29);
             this.btn_genJavaScript.Text = "生成脚本";
+            this.btn_genJavaScript.Click += new System.EventHandler(this.btn_genJavaScript_Click);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dataGridView1);
+            this.tabPage2.Controls.Add(this.dataGridView_Native);
             this.tabPage2.Controls.Add(this.toolStrip1);
-            this.tabPage2.Controls.Add(this.textBox1);
-            this.tabPage2.Controls.Add(this.textBox2);
-            this.tabPage2.Controls.Add(this.textBox3);
+            this.tabPage2.Controls.Add(this.tBox_className_native);
+            this.tabPage2.Controls.Add(this.tBox_param_native);
+            this.tabPage2.Controls.Add(this.tBox_functionName_native);
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.label6);
@@ -235,49 +211,24 @@
             this.tabPage2.Text = "Native";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridView_Native
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dataGridView_Native.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewCheckBoxColumn1,
-            this.dataGridViewCheckBoxColumn2,
-            this.dataGridViewCheckBoxColumn3,
-            this.dataGridViewCheckBoxColumn4,
-            this.dataGridViewCheckBoxColumn5});
-            this.dataGridView1.Location = new System.Drawing.Point(6, 130);
-            this.dataGridView1.MultiSelect = false;
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(570, 298);
-            this.dataGridView1.TabIndex = 14;
-            // 
-            // dataGridViewCheckBoxColumn1
-            // 
-            this.dataGridViewCheckBoxColumn1.HeaderText = "堆栈";
-            this.dataGridViewCheckBoxColumn1.Name = "dataGridViewCheckBoxColumn1";
-            // 
-            // dataGridViewCheckBoxColumn2
-            // 
-            this.dataGridViewCheckBoxColumn2.HeaderText = "参数1";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            // 
-            // dataGridViewCheckBoxColumn3
-            // 
-            this.dataGridViewCheckBoxColumn3.HeaderText = "参数2";
-            this.dataGridViewCheckBoxColumn3.Name = "dataGridViewCheckBoxColumn3";
-            // 
-            // dataGridViewCheckBoxColumn4
-            // 
-            this.dataGridViewCheckBoxColumn4.HeaderText = "参数3";
-            this.dataGridViewCheckBoxColumn4.Name = "dataGridViewCheckBoxColumn4";
-            // 
-            // dataGridViewCheckBoxColumn5
-            // 
-            this.dataGridViewCheckBoxColumn5.HeaderText = "返回值";
-            this.dataGridViewCheckBoxColumn5.Name = "dataGridViewCheckBoxColumn5";
+            this.dataGridView_Native.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Native.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.stackInfo_native,
+            this.param1_native,
+            this.param2_native,
+            this.param3_native,
+            this.retVal_native});
+            this.dataGridView_Native.Location = new System.Drawing.Point(6, 130);
+            this.dataGridView_Native.MultiSelect = false;
+            this.dataGridView_Native.Name = "dataGridView_Native";
+            this.dataGridView_Native.RowTemplate.Height = 27;
+            this.dataGridView_Native.Size = new System.Drawing.Size(570, 298);
+            this.dataGridView_Native.TabIndex = 14;
             // 
             // toolStrip1
             // 
@@ -301,27 +252,28 @@
             this.btn_genNativeScript.Name = "btn_genNativeScript";
             this.btn_genNativeScript.Size = new System.Drawing.Size(92, 29);
             this.btn_genNativeScript.Text = "生成脚本";
+            this.btn_genNativeScript.Click += new System.EventHandler(this.btn_genNativeScript_Click);
             // 
-            // textBox1
+            // tBox_className_native
             // 
-            this.textBox1.Location = new System.Drawing.Point(71, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 28);
-            this.textBox1.TabIndex = 7;
+            this.tBox_className_native.Location = new System.Drawing.Point(71, 28);
+            this.tBox_className_native.Name = "tBox_className_native";
+            this.tBox_className_native.Size = new System.Drawing.Size(227, 28);
+            this.tBox_className_native.TabIndex = 7;
             // 
-            // textBox2
+            // tBox_param_native
             // 
-            this.textBox2.Location = new System.Drawing.Point(71, 76);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 28);
-            this.textBox2.TabIndex = 11;
+            this.tBox_param_native.Location = new System.Drawing.Point(71, 76);
+            this.tBox_param_native.Name = "tBox_param_native";
+            this.tBox_param_native.Size = new System.Drawing.Size(227, 28);
+            this.tBox_param_native.TabIndex = 11;
             // 
-            // textBox3
+            // tBox_functionName_native
             // 
-            this.textBox3.Location = new System.Drawing.Point(397, 28);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(143, 28);
-            this.textBox3.TabIndex = 9;
+            this.tBox_functionName_native.Location = new System.Drawing.Point(397, 28);
+            this.tBox_functionName_native.Name = "tBox_functionName_native";
+            this.tBox_functionName_native.Size = new System.Drawing.Size(143, 28);
+            this.tBox_functionName_native.TabIndex = 9;
             // 
             // label4
             // 
@@ -353,6 +305,56 @@
             this.label6.TabIndex = 8;
             this.label6.Text = "函数名：";
             // 
+            // stackInfo_java
+            // 
+            this.stackInfo_java.HeaderText = "堆栈";
+            this.stackInfo_java.Name = "stackInfo_java";
+            // 
+            // param1_java
+            // 
+            this.param1_java.HeaderText = "参数1";
+            this.param1_java.Name = "param1_java";
+            // 
+            // param2_java
+            // 
+            this.param2_java.HeaderText = "参数2";
+            this.param2_java.Name = "param2_java";
+            // 
+            // param3_java
+            // 
+            this.param3_java.HeaderText = "参数3";
+            this.param3_java.Name = "param3_java";
+            // 
+            // retVal_java
+            // 
+            this.retVal_java.HeaderText = "返回值";
+            this.retVal_java.Name = "retVal_java";
+            // 
+            // stackInfo_native
+            // 
+            this.stackInfo_native.HeaderText = "堆栈";
+            this.stackInfo_native.Name = "stackInfo_native";
+            // 
+            // param1_native
+            // 
+            this.param1_native.HeaderText = "参数1";
+            this.param1_native.Name = "param1_native";
+            // 
+            // param2_native
+            // 
+            this.param2_native.HeaderText = "参数2";
+            this.param2_native.Name = "param2_native";
+            // 
+            // param3_native
+            // 
+            this.param3_native.HeaderText = "参数3";
+            this.param3_native.Name = "param3_native";
+            // 
+            // retVal_native
+            // 
+            this.retVal_native.HeaderText = "返回值";
+            this.retVal_native.Name = "retVal_native";
+            // 
             // FridaHookControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -368,7 +370,7 @@
             this.toolStrip2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Native)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -377,35 +379,35 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tBox_param;
+        private System.Windows.Forms.TextBox tBox_param_java;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tBox_functionName;
+        private System.Windows.Forms.TextBox tBox_functionName_java;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tBox_className;
+        private System.Windows.Forms.TextBox tBox_className_java;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton btn_genNativeScript;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tBox_className_native;
+        private System.Windows.Forms.TextBox tBox_param_native;
+        private System.Windows.Forms.TextBox tBox_functionName_native;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dataGridView_Java;
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripButton btn_genJavaScript;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Stack;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn param1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn param2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn param3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn returnVal;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn4;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn5;
+        private System.Windows.Forms.DataGridView dataGridView_Native;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn stackInfo_java;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn param1_java;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn param2_java;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn param3_java;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn retVal_java;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn stackInfo_native;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn param1_native;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn param2_native;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn param3_native;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn retVal_native;
     }
 }

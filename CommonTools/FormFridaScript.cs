@@ -18,18 +18,21 @@ namespace CommonTools
             InitializeComponent();
             this.inputBox = inputBox;
             this.outputBox = outputBox;
-            this.fridaHookControl1.GenScript_Java_Button.Click += GenScript_Java_Button_Click;
-            this.fridaHookControl1.GenScript_Native_Button.Click += GenScript_Native_Button_Click;
+            fridaHookControl1.JavaScriptGenerateCompleted += FridaHookControl1_JavaScriptGenerateCompleted;
+            fridaHookControl1.NativeScriptGenerateCompleted += FridaHookControl1_NativeScriptGenerateCompleted;
         }
 
-        private void GenScript_Native_Button_Click(object sender, EventArgs e)
+        private void FridaHookControl1_NativeScriptGenerateCompleted(object sender, UserConfigEventArgs e)
         {
-            throw new NotImplementedException();
+            MessageBox.Show(e.ConfigResult.ToString());
         }
 
-        private void GenScript_Java_Button_Click(object sender, EventArgs e)
+        private void FridaHookControl1_JavaScriptGenerateCompleted(object sender, UserConfigEventArgs e)
         {
-            throw new NotImplementedException();
+            //MessageBox.Show(e.ConfigResult.ToString());
+            //outputBox.Text = e.ConfigResult.ToString();
+
+
         }
 
     }
