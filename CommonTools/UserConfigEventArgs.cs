@@ -8,13 +8,13 @@ namespace CommonTools
 {
     public class UserConfigEventArgs : EventArgs
     {
-        public UserConfigEventArgs(ConfigResult configResult) : base()
+        public UserConfigEventArgs(List<ConfigResult> configResults) : base()
         {
-            this.configResult = configResult;
+            this.configResults = configResults;
         }
 
-        ConfigResult configResult;
+        List<ConfigResult> configResults;
 
-        public ConfigResult ConfigResult { get => configResult; }
+        public List<ConfigResult> ConfigResults { get => configResults; }
     }
 }

@@ -80,6 +80,7 @@
     <Compile Include="Tools\FridaStrReplacer.cs" />
     <Compile Include="ToolType.cs" />
     <Compile Include="UserConfigEventArgs.cs" />
+    <Compile Include="CodeUtil.cs" />
     <EmbeddedResource Include="FridaHookControl.resx">
       <DependentUpon>FridaHookControl.cs</DependentUpon>
     </EmbeddedResource>

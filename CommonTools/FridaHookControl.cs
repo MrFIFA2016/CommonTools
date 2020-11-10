@@ -19,22 +19,6 @@ namespace CommonTools
         public delegate void JavaScriptGenerateCompletedEventHandle(Object sender, UserConfigEventArgs e);
         public delegate void NativeScriptGenerateCompletedEventHandle(Object sender, UserConfigEventArgs e);
 
-        //public ToolStripButton GenScript_Java_Button
-        //{
-        //    get
-        //    {
-        //        return btn_genJavaScript; ;
-        //    }
-        //}
-
-        //public ToolStripButton GenScript_Native_Button
-        //{
-        //    get
-        //    {
-        //        return btn_genNativeScript;
-        //    }
-        //}
-
         public FridaHookControl()
         {
             InitializeComponent();
@@ -44,7 +28,7 @@ namespace CommonTools
         {
             if (JavaScriptGenerateCompleted != null)
             {
-                UserConfigEventArgs args = new UserConfigEventArgs(ConstractResult(dataGridView_Java, tBox_className_java, tBox_functionName_java, tBox_param_java));
+                UserConfigEventArgs args = new UserConfigEventArgs(ConstractResults(dataGridView_Java));
                 JavaScriptGenerateCompleted(this, args);
             }
         }
@@ -53,31 +37,44 @@ namespace CommonTools
         {
             if (NativeScriptGenerateCompleted != null)
             {
-                UserConfigEventArgs args = new UserConfigEventArgs(ConstractResult(dataGridView_Native, tBox_className_native, tBox_functionName_native, tBox_param_native));
+                UserConfigEventArgs args = new UserConfigEventArgs(ConstractResults(dataGridView_Native));
                 NativeScriptGenerateCompleted(this, args);
             }
         }
 
-        private ConfigResult ConstractResult(DataGridView grid, TextBox tBox_className, TextBox tBox_functionName, TextBox tBox_param)
+        private List<ConfigResult> ConstractResults(DataGridView grid)
         {
-            ConfigResult result = new ConfigResult(tBox_className.Text.Trim(), tBox_functionName.Text.Trim(), tBox_param.Text.Trim());
-            List<Dictionary<string, bool>> us = result.UserSelection;
             grid.EndEdit();
+
+            List<ConfigResult> results = new List<ConfigResult>();
+
             foreach (DataGridViewRow row in grid.Rows)
             {
                 if (row.IsNewRow)
                     continue;
+
                 Dictionary<string, bool> map = new Dictionary<string, bool>();
-                foreach (DataGridViewColumn col in grid.Columns)
+
+                string className = ((DataGridViewTextBoxCell)row.Cells[0]).Value.ToString();
+                string functionName = ((DataGridViewTextBoxCell)row.Cells[1]).Value.ToString();
+                string param = ((DataGridViewTextBoxCell)row.Cells[2]).Value.ToString();
+                string paramCount = ((DataGridViewTextBoxCell)row.Cells[3]).Value.ToString();
+
+                ConfigResult result = new ConfigResult(className, functionName, param, paramCount);
+
+                for (int i = 4; i < grid.Columns.Count; i++)
                 {
+                    DataGridViewColumn col = grid.Columns[i];
                     DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)row.Cells[col.Index];
                     bool checkFlag = Convert.ToBoolean(cell.Value);
                     map.Add(col.Name, checkFlag);
                 }
-                us.Add(map);
+                //us.Add(map);
+                result.UserSelection.Add(map);
+                results.Add(result);
             }
 
-            return result;
+            return results;
         }
 
     }

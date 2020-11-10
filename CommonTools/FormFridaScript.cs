@@ -19,20 +19,18 @@ namespace CommonTools
             this.inputBox = inputBox;
             this.outputBox = outputBox;
             fridaHookControl1.JavaScriptGenerateCompleted += FridaHookControl1_JavaScriptGenerateCompleted;
-            fridaHookControl1.NativeScriptGenerateCompleted += FridaHookControl1_NativeScriptGenerateCompleted;
+           fridaHookControl1.NativeScriptGenerateCompleted += FridaHookControl1_NativeScriptGenerateCompleted;
         }
 
         private void FridaHookControl1_NativeScriptGenerateCompleted(object sender, UserConfigEventArgs e)
         {
-            MessageBox.Show(e.ConfigResult.ToString());
+            MessageBox.Show(e.ConfigResults.ToString());
         }
 
         private void FridaHookControl1_JavaScriptGenerateCompleted(object sender, UserConfigEventArgs e)
         {
-            //MessageBox.Show(e.ConfigResult.ToString());
+            MessageBox.Show(e.ConfigResults.ToString());
             //outputBox.Text = e.ConfigResult.ToString();
-
-
         }
 
     }
