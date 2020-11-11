@@ -21,3 +21,4 @@ F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.csproj.GenerateRes
 F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.csproj.CoreCompileInputs.cache
 F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.exe
 F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.pdb
+F:\PROJECT\Code\CommonTools\CommonTools\obj\Debug\CommonTools.MemPrintPanel.resources

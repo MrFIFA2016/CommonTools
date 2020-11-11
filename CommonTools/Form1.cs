@@ -20,10 +20,11 @@ namespace CommonTools
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            foreach (TreeNode node in tools_treeView.Nodes)
-            {
-                node.Expand();
-            }
+            //foreach (TreeNode node in tools_treeView.Nodes)
+            //{
+            //    node.Expand();
+            //}
+            this.tools_treeView.ExpandAll();
         }
 
         private void tools_treeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -44,11 +45,10 @@ namespace CommonTools
                     new AESEncrypt(commonToolStrip, input_txtBox, output_txtBox);
                     break;
                 case ToolType.FRIDASCRIPT:
-                    //new FridaStrReplacer(commonToolStrip, input_txtBox, output_txtBox);
-                    {
-                        FormFridaScript frm = new FormFridaScript(input_txtBox, output_txtBox);
-                        frm.Show();
-                    }
+                    new FridaStrReplacer(commonToolStrip, input_txtBox, output_txtBox, this.statusLabel1);
+                    FormFridaScript frm = new FormFridaScript(input_txtBox, output_txtBox);
+                    frm.ScriptGenerateCompleted += Frm_ScriptGenerateCompleted;
+                    frm.Show();
                     break;
                 default:
                     break;
@@ -56,5 +56,10 @@ namespace CommonTools
 
         }
 
+        private void Frm_ScriptGenerateCompleted(object sender, EventArgs e)
+        {
+            statusLabel1.Text = "代码已生成！";
+            this.Focus();
+        }
     }
 }

@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CommonTools
+namespace CommonTools.Entity
 {
     public class ConfigResult
     {
         String className;
         String functionName;
         String param;
-        String paramCount;
-        List<Dictionary<string, bool>> userSelection = new List<Dictionary<string, bool>>();
+        int paramCount;
+        List<Dictionary<string, ParaItem>> userSelection = new List<Dictionary<string, ParaItem>>();
 
-        public ConfigResult(string className, string functionName, string param, String paramCount)
+        public ConfigResult(string className, string functionName, string param, int paramCount)
         {
             this.className = className;
             this.functionName = functionName;
@@ -26,18 +26,18 @@ namespace CommonTools
         public string ClassName { get => className; }
         public string FunctionName { get => functionName; }
         public string Param { get => param; }
-        public List<Dictionary<string, bool>> UserSelection { get => userSelection; }
-        public string ParamCount { get => paramCount; }
+        public List<Dictionary<string, ParaItem>> UserSelection { get => userSelection; }
+        public int ParamCount { get => paramCount; }
 
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            foreach (Dictionary<string, bool> item in userSelection)
+            foreach (Dictionary<string, ParaItem> item in userSelection)
             {
                 string row = "{";
                 foreach (var entity in item)
                 {
-                    row += " " + entity.Key + " -> " + entity.Value + " |";
+                    row += " " + entity.Key + " -> " + entity.Value.ValuePrint + " |";
                 }
                 if (row.EndsWith("|"))
                     row = row.Substring(0, row.Length - 1);

@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entity\ParaItem.cs" />
     <Compile Include="FridaHookControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -71,9 +72,15 @@
     <Compile Include="FridaModelControl.Designer.cs">
       <DependentUpon>FridaModelControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MemPrintPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="MemPrintPanel.Designer.cs">
+      <DependentUpon>MemPrintPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ConfigResult.cs" />
+    <Compile Include="Entity\ConfigResult.cs" />
     <Compile Include="Tools\AESEncrypt.cs" />
     <Compile Include="Tools\Base64Codec.cs" />
     <Compile Include="Tools\BaseTool.cs" />
@@ -92,6 +99,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FridaModelControl.resx">
       <DependentUpon>FridaModelControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemPrintPanel.resx">
+      <DependentUpon>MemPrintPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

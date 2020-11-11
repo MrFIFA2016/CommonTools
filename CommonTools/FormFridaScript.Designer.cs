@@ -36,14 +36,14 @@
             this.fridaHookControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fridaHookControl1.Location = new System.Drawing.Point(0, 0);
             this.fridaHookControl1.Name = "fridaHookControl1";
-            this.fridaHookControl1.Size = new System.Drawing.Size(878, 487);
+            this.fridaHookControl1.Size = new System.Drawing.Size(971, 487);
             this.fridaHookControl1.TabIndex = 0;
             // 
             // FormFridaScript
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(878, 487);
+            this.ClientSize = new System.Drawing.Size(971, 487);
             this.Controls.Add(this.fridaHookControl1);
             this.Name = "FormFridaScript";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

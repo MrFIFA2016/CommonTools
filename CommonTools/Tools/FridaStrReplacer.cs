@@ -9,15 +9,55 @@ namespace CommonTools.Tools
 {
     public class FridaStrReplacer : BaseTool
     {
-        public FridaStrReplacer(ToolStrip toolStrip, RichTextBox inputBox, RichTextBox outputBox) : base(toolStrip, inputBox, outputBox)
+        ToolStripStatusLabel statusLabel;
+        public FridaStrReplacer(ToolStrip toolStrip, RichTextBox inputBox, RichTextBox outputBox, ToolStripStatusLabel statusLabel) : base(toolStrip, inputBox, outputBox)
         {
             init();
+            this.statusLabel = statusLabel;
         }
 
         protected override void init()
         {
             this.toolStrip.Items.Clear();
+
+            ToolStripButton btn0 = new ToolStripButton
+            {
+                Text = "清空输入"
+            };
+            this.toolStrip.Items.Add(btn0);
+            btn0.Click += Btn0_Click;
+
+            ToolStripButton btn1 = new ToolStripButton
+            {
+                Text = "清空输出"
+            };
+            this.toolStrip.Items.Add(btn1);
+            btn1.Click += Btn1_Click;
+
+            ToolStripButton btn2 = new ToolStripButton
+            {
+                Text = "复制输出代码"
+            };
+            this.toolStrip.Items.Add(btn2);
+            btn2.Click += Btn2_Click;
         }
 
+        private void Btn0_Click(object sender, EventArgs e)
+        {
+            inputBox.Text = "";
+        }
+
+        private void Btn1_Click(object sender, EventArgs e)
+        {
+            outputBox.Text = "";
+        }
+
+        private void Btn2_Click(object sender, EventArgs e)
+        {
+            outputBox.Focus();
+            outputBox.SelectAll();
+            Clipboard.SetDataObject(outputBox.Text);
+            statusLabel.Text = "代码已复制！共" + outputBox.Text.Length + "个字符";
+        }
     }
 }
