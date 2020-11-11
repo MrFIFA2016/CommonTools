@@ -35,6 +35,7 @@ namespace CommonTools
 			  textEditorControl1.AllowCaretBeyondEOL = false;
 			  textEditorControl1.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("JavaScript");
 			  textEditorControl1.Encoding = Encoding.GetEncoding("GB2312");
+       
         }
 
         private void tools_treeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
