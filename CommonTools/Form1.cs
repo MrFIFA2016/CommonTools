@@ -25,6 +25,16 @@ namespace CommonTools
             //    node.Expand();
             //}
             this.tools_treeView.ExpandAll();
+			textEditorControl1.ShowEOLMarkers = false;
+			  textEditorControl1.ShowHRuler = false;
+			  textEditorControl1.ShowInvalidLines = false;
+			  textEditorControl1.ShowMatchingBracket = true;
+			  textEditorControl1.ShowSpaces = false;
+			  textEditorControl1.ShowTabs = false;
+			  textEditorControl1.ShowVRuler = false;
+			  textEditorControl1.AllowCaretBeyondEOL = false;
+			  textEditorControl1.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("JavaScript");
+			  textEditorControl1.Encoding = Encoding.GetEncoding("GB2312");
         }
 
         private void tools_treeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
