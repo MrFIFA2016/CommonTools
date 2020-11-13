@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICSharpCode.TextEditor;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -9,12 +10,12 @@ using System.Windows.Forms;
 
 namespace CommonTools.Tools
 {
-    public class AESEncrypt : BaseTool
+    public class AESEncryptTool : StripTool
     {
         ToolStripTextBox keytxtBox;
         ToolStripTextBox vectorTxtBox;
 
-        public AESEncrypt(ToolStrip toolStrip, RichTextBox inputBox, RichTextBox outputBox) :
+        public AESEncryptTool(ToolStrip toolStrip, TextEditorControl inputBox, TextEditorControl outputBox) :
             base(toolStrip, inputBox, outputBox)
         {
             init();
@@ -73,6 +74,7 @@ namespace CommonTools.Tools
             else
                 output = Decrypt(input, keytxtBox.Text.Trim(), vector);
             outputBox.Text = output;
+            outputBox.Refresh();
         }
 
         private void EncryptBtn_Click(object sender, EventArgs e)
@@ -85,6 +87,7 @@ namespace CommonTools.Tools
             else
                 output = Encrypt(input, keytxtBox.Text.Trim(), vector);
             outputBox.Text = output;
+            outputBox.Refresh();
         }
 
 

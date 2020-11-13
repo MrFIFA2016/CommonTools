@@ -13,13 +13,13 @@ namespace CommonTools
 {
     public partial class MemPrintPanel : UserControl
     {
-        ParaItem paraItem;
-        public MemPrintPanel(ParaItem paraItem)
+        NativeParaItem paraItem;
+        public MemPrintPanel(NativeParaItem paraItem)
         {
             InitializeComponent();
             this.paraItem = paraItem;
-            this.paraItem.MemLength = (UInt32)memLengthBox.Value;
-            this.paraItem.Mem64Length = (UInt32)mem64LengthBox.Value;
+            this.paraItem.MemLen = (UInt32)memLengthBox.Value;
+            this.paraItem.Mem64Len = (UInt32)mem64LengthBox.Value;
 
             this.memLengthBox.ValueChanged += MemLengthBox_ValueChanged;
             this.mem64LengthBox.ValueChanged += Mem64LengthBox_ValueChanged;
@@ -27,12 +27,12 @@ namespace CommonTools
 
         private void Mem64LengthBox_ValueChanged(object sender, EventArgs e)
         {
-            this.paraItem.Mem64Length = (UInt32)mem64LengthBox.Value;
+            this.paraItem.Mem64Len = (UInt32)mem64LengthBox.Value;
         }
 
         private void MemLengthBox_ValueChanged(object sender, EventArgs e)
         {
-            this.paraItem.MemLength = (UInt32)memLengthBox.Value;
+            this.paraItem.MemLen = (UInt32)memLengthBox.Value;
         }
 
         private void cBox_printMem_CheckedChanged(object sender, EventArgs e)

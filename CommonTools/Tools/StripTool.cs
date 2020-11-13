@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICSharpCode.TextEditor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,13 +8,13 @@ using System.Windows.Forms;
 
 namespace CommonTools.Tools
 {
-    public abstract class BaseTool
+    public abstract class StripTool
     {
         protected ToolStrip toolStrip;
-        protected RichTextBox inputBox;
-        protected RichTextBox outputBox;
+        protected TextEditorControl inputBox;
+        protected TextEditorControl outputBox;
 
-        public BaseTool(ToolStrip toolStrip, RichTextBox inputBox, RichTextBox outputBox)
+        public StripTool(ToolStrip toolStrip, TextEditorControl inputBox, TextEditorControl outputBox)
         {
             this.toolStrip = toolStrip;
             this.inputBox = inputBox;

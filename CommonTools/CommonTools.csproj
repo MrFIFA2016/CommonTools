@@ -34,6 +34,13 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ICSharpCode.TextEditor, Version=3.0.0.3800, Culture=neutral, PublicKeyToken=4d61825e8dd49f1a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\ICSharpCode.TextEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -47,7 +54,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entity\ParaItem.cs" />
+    <Compile Include="Entity\Base\BaseConfig.cs" />
+    <Compile Include="Entity\UserConfig.cs" />
+    <Compile Include="Entity\JavaConfig.cs" />
+    <Compile Include="Entity\JavaParaItem.cs" />
+    <Compile Include="Entity\NativeParaItem.cs" />
+    <Compile Include="Entity\Base\ParaItem.cs" />
+    <Compile Include="Event\JavaConfigEventArgs.cs" />
     <Compile Include="FridaHookControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -66,12 +79,6 @@
     <Compile Include="FormFridaScript.Designer.cs">
       <DependentUpon>FormFridaScript.cs</DependentUpon>
     </Compile>
-    <Compile Include="FridaModelControl.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FridaModelControl.Designer.cs">
-      <DependentUpon>FridaModelControl.cs</DependentUpon>
-    </Compile>
     <Compile Include="MemPrintPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -80,13 +87,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Entity\ConfigResult.cs" />
-    <Compile Include="Tools\AESEncrypt.cs" />
-    <Compile Include="Tools\Base64Codec.cs" />
-    <Compile Include="Tools\BaseTool.cs" />
-    <Compile Include="Tools\FridaStrReplacer.cs" />
+    <Compile Include="Entity\NativeConfig.cs" />
+    <Compile Include="Tools\AESEncryptTool.cs" />
+    <Compile Include="Tools\Base64CodecTool.cs" />
+    <Compile Include="Tools\AutoHookTool.cs" />
+    <Compile Include="Tools\StripTool.cs" />
+    <Compile Include="Tools\ConfigUtil.cs" />
+    <Compile Include="Tools\HookTool.cs" />
+    <Compile Include="HookType.cs" />
     <Compile Include="ToolType.cs" />
-    <Compile Include="UserConfigEventArgs.cs" />
+    <Compile Include="Event\NativeConfigEventArgs.cs" />
     <Compile Include="CodeUtil.cs" />
     <EmbeddedResource Include="FridaHookControl.resx">
       <DependentUpon>FridaHookControl.cs</DependentUpon>
@@ -96,9 +106,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormFridaScript.resx">
       <DependentUpon>FormFridaScript.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FridaModelControl.resx">
-      <DependentUpon>FridaModelControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MemPrintPanel.resx">
       <DependentUpon>MemPrintPanel.cs</DependentUpon>
@@ -113,6 +120,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="app.manifest" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

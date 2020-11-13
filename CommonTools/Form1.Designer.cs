@@ -28,35 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TreeNode treeNode1 = new System.Windows.Forms.TreeNode("Base64");
-            System.Windows.Forms.TreeNode treeNode2 = new System.Windows.Forms.TreeNode("AES");
-            System.Windows.Forms.TreeNode treeNode3 = new System.Windows.Forms.TreeNode("编解码工具", new System.Windows.Forms.TreeNode[] {
-            treeNode1,
-            treeNode2});
-            System.Windows.Forms.TreeNode treeNode4 = new System.Windows.Forms.TreeNode("Frida脚本工具");
-            System.Windows.Forms.TreeNode treeNode5 = new System.Windows.Forms.TreeNode("脚本工具", new System.Windows.Forms.TreeNode[] {
-            treeNode4});
-            System.Windows.Forms.TreeNode treeNode6 = new System.Windows.Forms.TreeNode("工具集", new System.Windows.Forms.TreeNode[] {
-            treeNode3,
-            treeNode5});
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Base64");
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("AES");
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("编解码工具", new System.Windows.Forms.TreeNode[] {
+            treeNode50,
+            treeNode51});
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Frida脚本界面工具");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Frida脚本批量生成");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("脚本工具", new System.Windows.Forms.TreeNode[] {
+            treeNode53,
+            treeNode54});
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("工具集", new System.Windows.Forms.TreeNode[] {
+            treeNode52,
+            treeNode55});
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.statusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer_Form = new System.Windows.Forms.SplitContainer();
             this.tools_treeView = new System.Windows.Forms.TreeView();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.input_txtBox = new System.Windows.Forms.RichTextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.output_txtBox = new System.Windows.Forms.RichTextBox();
+            this.output_txtBox = new ICSharpCode.TextEditor.TextEditorControl();
             this.commonToolStrip = new System.Windows.Forms.ToolStrip();
+            this.input_txtBox = new ICSharpCode.TextEditor.TextEditorControl();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Form)).BeginInit();
+            this.splitContainer_Form.Panel1.SuspendLayout();
+            this.splitContainer_Form.Panel2.SuspendLayout();
+            this.splitContainer_Form.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -101,24 +103,25 @@
             this.statusLabel1.Size = new System.Drawing.Size(39, 20);
             this.statusLabel1.Text = "就绪";
             // 
-            // splitContainer1
+            // splitContainer_Form
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 30);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
-            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer_Form.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer_Form.Location = new System.Drawing.Point(0, 30);
+            this.splitContainer_Form.Margin = new System.Windows.Forms.Padding(4);
+            this.splitContainer_Form.Name = "splitContainer_Form";
             // 
-            // splitContainer1.Panel1
+            // splitContainer_Form.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.tools_treeView);
+            this.splitContainer_Form.Panel1.Controls.Add(this.tools_treeView);
             // 
-            // splitContainer1.Panel2
+            // splitContainer_Form.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Panel2.Controls.Add(this.commonToolStrip);
-            this.splitContainer1.Size = new System.Drawing.Size(980, 514);
-            this.splitContainer1.SplitterDistance = 225;
-            this.splitContainer1.TabIndex = 2;
+            this.splitContainer_Form.Panel2.Controls.Add(this.splitContainer2);
+            this.splitContainer_Form.Panel2.Controls.Add(this.commonToolStrip);
+            this.splitContainer_Form.Size = new System.Drawing.Size(980, 514);
+            this.splitContainer_Form.SplitterDistance = 225;
+            this.splitContainer_Form.SplitterWidth = 8;
+            this.splitContainer_Form.TabIndex = 2;
             // 
             // tools_treeView
             // 
@@ -126,24 +129,27 @@
             this.tools_treeView.Location = new System.Drawing.Point(0, 0);
             this.tools_treeView.Margin = new System.Windows.Forms.Padding(4);
             this.tools_treeView.Name = "tools_treeView";
-            treeNode1.Name = "BASE64_Node";
-            treeNode1.Tag = "base64";
-            treeNode1.Text = "Base64";
-            treeNode2.Name = "AES_Node";
-            treeNode2.Tag = "AES";
-            treeNode2.Text = "AES";
-            treeNode3.Name = "tools_codec_node";
-            treeNode3.Text = "编解码工具";
-            treeNode4.Name = "tools_fridascript_node";
-            treeNode4.Tag = "FRIDASCRIPT";
-            treeNode4.Text = "Frida脚本工具";
-            treeNode5.Name = "tools_script_node";
-            treeNode5.Text = "脚本工具";
-            treeNode6.Name = "tools_root_node";
-            treeNode6.Tag = "";
-            treeNode6.Text = "工具集";
+            treeNode50.Name = "BASE64_Node";
+            treeNode50.Tag = "base64";
+            treeNode50.Text = "Base64";
+            treeNode51.Name = "AES_Node";
+            treeNode51.Tag = "AES";
+            treeNode51.Text = "AES";
+            treeNode52.Name = "tools_codec_node";
+            treeNode52.Text = "编解码工具";
+            treeNode53.Name = "tools_fridascript_node";
+            treeNode53.Tag = "FRIDASCRIPT";
+            treeNode53.Text = "Frida脚本界面工具";
+            treeNode54.Name = "tools_fridascript_node_auto";
+            treeNode54.Tag = "FRIDASCRIPT_AUTO";
+            treeNode54.Text = "Frida脚本批量生成";
+            treeNode55.Name = "tools_script_node";
+            treeNode55.Text = "脚本工具";
+            treeNode56.Name = "tools_root_node";
+            treeNode56.Tag = "";
+            treeNode56.Text = "工具集";
             this.tools_treeView.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode6});
+            treeNode56});
             this.tools_treeView.Size = new System.Drawing.Size(225, 514);
             this.tools_treeView.TabIndex = 0;
             this.tools_treeView.NodeMouseDoubleClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tools_treeView_NodeMouseDoubleClick);
@@ -153,7 +159,6 @@
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 25);
             this.splitContainer2.Name = "splitContainer2";
-            this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
             // splitContainer2.Panel1
             // 
@@ -162,8 +167,9 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer2.Size = new System.Drawing.Size(751, 489);
-            this.splitContainer2.SplitterDistance = 203;
+            this.splitContainer2.Size = new System.Drawing.Size(747, 489);
+            this.splitContainer2.SplitterDistance = 295;
+            this.splitContainer2.SplitterWidth = 8;
             this.splitContainer2.TabIndex = 1;
             // 
             // groupBox1
@@ -172,20 +178,10 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(751, 203);
+            this.groupBox1.Size = new System.Drawing.Size(295, 489);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "输入";
-            // 
-            // input_txtBox
-            // 
-            this.input_txtBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.input_txtBox.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.input_txtBox.Location = new System.Drawing.Point(3, 24);
-            this.input_txtBox.Name = "input_txtBox";
-            this.input_txtBox.Size = new System.Drawing.Size(745, 176);
-            this.input_txtBox.TabIndex = 0;
-            this.input_txtBox.Text = "";
             // 
             // groupBox2
             // 
@@ -193,7 +189,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(751, 282);
+            this.groupBox2.Size = new System.Drawing.Size(444, 489);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "输出";
@@ -201,28 +197,40 @@
             // output_txtBox
             // 
             this.output_txtBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.output_txtBox.Font = new System.Drawing.Font("Consolas", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.output_txtBox.IsReadOnly = false;
             this.output_txtBox.Location = new System.Drawing.Point(3, 24);
             this.output_txtBox.Name = "output_txtBox";
-            this.output_txtBox.Size = new System.Drawing.Size(745, 255);
-            this.output_txtBox.TabIndex = 0;
-            this.output_txtBox.Text = "";
+            this.output_txtBox.Size = new System.Drawing.Size(438, 462);
+            this.output_txtBox.TabIndex = 1;
+            this.output_txtBox.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // commonToolStrip
             // 
             this.commonToolStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.commonToolStrip.Location = new System.Drawing.Point(0, 0);
             this.commonToolStrip.Name = "commonToolStrip";
-            this.commonToolStrip.Size = new System.Drawing.Size(751, 25);
+            this.commonToolStrip.Size = new System.Drawing.Size(747, 25);
             this.commonToolStrip.TabIndex = 0;
             this.commonToolStrip.Text = "toolStrip1";
+            // 
+            // input_txtBox
+            // 
+            this.input_txtBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.input_txtBox.IsReadOnly = false;
+            this.input_txtBox.Location = new System.Drawing.Point(3, 24);
+            this.input_txtBox.Name = "input_txtBox";
+            this.input_txtBox.ShowVRuler = false;
+            this.input_txtBox.Size = new System.Drawing.Size(289, 462);
+            this.input_txtBox.TabIndex = 2;
+            this.input_txtBox.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            this.input_txtBox.VRulerRow = 30;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(980, 569);
-            this.Controls.Add(this.splitContainer1);
+            this.Controls.Add(this.splitContainer_Form);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -235,11 +243,11 @@
             this.menuStrip1.PerformLayout();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            this.splitContainer1.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
+            this.splitContainer_Form.Panel1.ResumeLayout(false);
+            this.splitContainer_Form.Panel2.ResumeLayout(false);
+            this.splitContainer_Form.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer_Form)).EndInit();
+            this.splitContainer_Form.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -257,14 +265,14 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel statusLabel1;
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainer_Form;
         private System.Windows.Forms.TreeView tools_treeView;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox input_txtBox;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.RichTextBox output_txtBox;
         private System.Windows.Forms.ToolStrip commonToolStrip;
+        private ICSharpCode.TextEditor.TextEditorControl output_txtBox;
+        private ICSharpCode.TextEditor.TextEditorControl input_txtBox;
     }
 }
 

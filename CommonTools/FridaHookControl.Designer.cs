@@ -33,14 +33,6 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage_java = new System.Windows.Forms.TabPage();
             this.dataGridView_Java = new System.Windows.Forms.DataGridView();
-            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
-            this.btn_genJavaScript = new System.Windows.Forms.ToolStripButton();
-            this.tabPage_native = new System.Windows.Forms.TabPage();
-            this.dataGridView_Native = new System.Windows.Forms.DataGridView();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btn_genNativeScript = new System.Windows.Forms.ToolStripButton();
-            this.contextMenuStrip_default = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.增加参数列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.className_Java = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.functionName_Java = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.param_Java = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -50,6 +42,10 @@
             this.param0_java = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.param1_java = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.param2_java = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.toolStrip2 = new System.Windows.Forms.ToolStrip();
+            this.btn_genJavaScript = new System.Windows.Forms.ToolStripButton();
+            this.tabPage_native = new System.Windows.Forms.TabPage();
+            this.dataGridView_Native = new System.Windows.Forms.DataGridView();
             this.className_Native = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.functionName_Native = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.param_Native = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +55,12 @@
             this.param0_native = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.param1_native = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.param2_native = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.btn_genNativeScript = new System.Windows.Forms.ToolStripButton();
+            this.contextMenuStrip_default = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.增加参数列ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btn_genJavaJson = new System.Windows.Forms.ToolStripButton();
+            this.btn_genNativeJson = new System.Windows.Forms.ToolStripButton();
             this.tabControl1.SuspendLayout();
             this.tabPage_java.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Java)).BeginInit();
@@ -116,104 +118,6 @@
             this.dataGridView_Java.Size = new System.Drawing.Size(570, 422);
             this.dataGridView_Java.TabIndex = 13;
             // 
-            // toolStrip2
-            // 
-            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_genJavaScript});
-            this.toolStrip2.Location = new System.Drawing.Point(3, 431);
-            this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStrip2.Size = new System.Drawing.Size(576, 32);
-            this.toolStrip2.TabIndex = 6;
-            this.toolStrip2.Text = "toolStrip2";
-            // 
-            // btn_genJavaScript
-            // 
-            this.btn_genJavaScript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btn_genJavaScript.Image = ((System.Drawing.Image)(resources.GetObject("btn_genJavaScript.Image")));
-            this.btn_genJavaScript.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_genJavaScript.Name = "btn_genJavaScript";
-            this.btn_genJavaScript.Size = new System.Drawing.Size(92, 29);
-            this.btn_genJavaScript.Text = "生成脚本";
-            this.btn_genJavaScript.Click += new System.EventHandler(this.btn_genJavaScript_Click);
-            // 
-            // tabPage_native
-            // 
-            this.tabPage_native.Controls.Add(this.dataGridView_Native);
-            this.tabPage_native.Controls.Add(this.toolStrip1);
-            this.tabPage_native.Location = new System.Drawing.Point(4, 28);
-            this.tabPage_native.Name = "tabPage_native";
-            this.tabPage_native.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage_native.Size = new System.Drawing.Size(582, 466);
-            this.tabPage_native.TabIndex = 1;
-            this.tabPage_native.Text = "Native";
-            this.tabPage_native.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView_Native
-            // 
-            this.dataGridView_Native.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridView_Native.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_Native.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.className_Native,
-            this.functionName_Native,
-            this.param_Native,
-            this.paramCount_Native,
-            this.stackInfo_native,
-            this.retVal_native,
-            this.param0_native,
-            this.param1_native,
-            this.param2_native});
-            this.dataGridView_Native.Location = new System.Drawing.Point(6, 6);
-            this.dataGridView_Native.MultiSelect = false;
-            this.dataGridView_Native.Name = "dataGridView_Native";
-            this.dataGridView_Native.RowTemplate.Height = 27;
-            this.dataGridView_Native.Size = new System.Drawing.Size(570, 422);
-            this.dataGridView_Native.TabIndex = 14;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.toolStrip1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btn_genNativeScript});
-            this.toolStrip1.Location = new System.Drawing.Point(3, 431);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.toolStrip1.Size = new System.Drawing.Size(576, 32);
-            this.toolStrip1.TabIndex = 0;
-            this.toolStrip1.Text = "toolStrip1";
-            // 
-            // btn_genNativeScript
-            // 
-            this.btn_genNativeScript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            this.btn_genNativeScript.Image = ((System.Drawing.Image)(resources.GetObject("btn_genNativeScript.Image")));
-            this.btn_genNativeScript.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btn_genNativeScript.Name = "btn_genNativeScript";
-            this.btn_genNativeScript.Size = new System.Drawing.Size(92, 29);
-            this.btn_genNativeScript.Text = "生成脚本";
-            this.btn_genNativeScript.Click += new System.EventHandler(this.btn_genNativeScript_Click);
-            // 
-            // contextMenuStrip_default
-            // 
-            this.contextMenuStrip_default.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.contextMenuStrip_default.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.增加参数列ToolStripMenuItem});
-            this.contextMenuStrip_default.Name = "contextMenuStrip_default";
-            this.contextMenuStrip_default.Size = new System.Drawing.Size(154, 28);
-            // 
-            // 增加参数列ToolStripMenuItem
-            // 
-            this.增加参数列ToolStripMenuItem.Name = "增加参数列ToolStripMenuItem";
-            this.增加参数列ToolStripMenuItem.Size = new System.Drawing.Size(210, 24);
-            this.增加参数列ToolStripMenuItem.Text = "增加参数列";
-            this.增加参数列ToolStripMenuItem.Click += new System.EventHandler(this.增加列ToolStripMenuItem_Click);
-            // 
             // className_Java
             // 
             this.className_Java.HeaderText = "类名";
@@ -259,6 +163,66 @@
             // 
             this.param2_java.HeaderText = "参数2";
             this.param2_java.Name = "param2_java";
+            // 
+            // toolStrip2
+            // 
+            this.toolStrip2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip2.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStrip2.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_genJavaScript,
+            this.btn_genJavaJson});
+            this.toolStrip2.Location = new System.Drawing.Point(3, 431);
+            this.toolStrip2.Name = "toolStrip2";
+            this.toolStrip2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.toolStrip2.Size = new System.Drawing.Size(576, 32);
+            this.toolStrip2.TabIndex = 6;
+            this.toolStrip2.Text = "toolStrip2";
+            // 
+            // btn_genJavaScript
+            // 
+            this.btn_genJavaScript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_genJavaScript.Image = ((System.Drawing.Image)(resources.GetObject("btn_genJavaScript.Image")));
+            this.btn_genJavaScript.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_genJavaScript.Name = "btn_genJavaScript";
+            this.btn_genJavaScript.Size = new System.Drawing.Size(92, 29);
+            this.btn_genJavaScript.Text = "生成代码";
+            this.btn_genJavaScript.Click += new System.EventHandler(this.btn_genJavaScript_Click);
+            // 
+            // tabPage_native
+            // 
+            this.tabPage_native.Controls.Add(this.dataGridView_Native);
+            this.tabPage_native.Controls.Add(this.toolStrip1);
+            this.tabPage_native.Location = new System.Drawing.Point(4, 28);
+            this.tabPage_native.Name = "tabPage_native";
+            this.tabPage_native.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage_native.Size = new System.Drawing.Size(582, 466);
+            this.tabPage_native.TabIndex = 1;
+            this.tabPage_native.Text = "Native";
+            this.tabPage_native.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_Native
+            // 
+            this.dataGridView_Native.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView_Native.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Native.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.className_Native,
+            this.functionName_Native,
+            this.param_Native,
+            this.paramCount_Native,
+            this.stackInfo_native,
+            this.retVal_native,
+            this.param0_native,
+            this.param1_native,
+            this.param2_native});
+            this.dataGridView_Native.Location = new System.Drawing.Point(6, 6);
+            this.dataGridView_Native.MultiSelect = false;
+            this.dataGridView_Native.Name = "dataGridView_Native";
+            this.dataGridView_Native.RowTemplate.Height = 27;
+            this.dataGridView_Native.Size = new System.Drawing.Size(570, 422);
+            this.dataGridView_Native.TabIndex = 14;
             // 
             // className_Native
             // 
@@ -311,6 +275,66 @@
             // 
             this.param2_native.HeaderText = "参数2";
             this.param2_native.Name = "param2_native";
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.toolStrip1.Font = new System.Drawing.Font("Microsoft YaHei UI", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.btn_genNativeScript,
+            this.btn_genNativeJson});
+            this.toolStrip1.Location = new System.Drawing.Point(3, 431);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.toolStrip1.Size = new System.Drawing.Size(576, 32);
+            this.toolStrip1.TabIndex = 0;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // btn_genNativeScript
+            // 
+            this.btn_genNativeScript.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_genNativeScript.Image = ((System.Drawing.Image)(resources.GetObject("btn_genNativeScript.Image")));
+            this.btn_genNativeScript.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_genNativeScript.Name = "btn_genNativeScript";
+            this.btn_genNativeScript.Size = new System.Drawing.Size(92, 29);
+            this.btn_genNativeScript.Text = "生成代码";
+            this.btn_genNativeScript.Click += new System.EventHandler(this.btn_genNativeScript_Click);
+            // 
+            // contextMenuStrip_default
+            // 
+            this.contextMenuStrip_default.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.contextMenuStrip_default.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.增加参数列ToolStripMenuItem});
+            this.contextMenuStrip_default.Name = "contextMenuStrip_default";
+            this.contextMenuStrip_default.Size = new System.Drawing.Size(154, 28);
+            // 
+            // 增加参数列ToolStripMenuItem
+            // 
+            this.增加参数列ToolStripMenuItem.Name = "增加参数列ToolStripMenuItem";
+            this.增加参数列ToolStripMenuItem.Size = new System.Drawing.Size(153, 24);
+            this.增加参数列ToolStripMenuItem.Text = "增加参数列";
+            this.增加参数列ToolStripMenuItem.Click += new System.EventHandler(this.增加列ToolStripMenuItem_Click);
+            // 
+            // btn_genJavaJson
+            // 
+            this.btn_genJavaJson.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_genJavaJson.Image = ((System.Drawing.Image)(resources.GetObject("btn_genJavaJson.Image")));
+            this.btn_genJavaJson.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_genJavaJson.Name = "btn_genJavaJson";
+            this.btn_genJavaJson.Size = new System.Drawing.Size(92, 29);
+            this.btn_genJavaJson.Text = "生成脚本";
+            this.btn_genJavaJson.Click += new System.EventHandler(this.btn_genJavaJson_Click);
+            // 
+            // btn_genNativeJson
+            // 
+            this.btn_genNativeJson.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.btn_genNativeJson.Image = ((System.Drawing.Image)(resources.GetObject("btn_genNativeJson.Image")));
+            this.btn_genNativeJson.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.btn_genNativeJson.Name = "btn_genNativeJson";
+            this.btn_genNativeJson.Size = new System.Drawing.Size(92, 29);
+            this.btn_genNativeJson.Text = "生成脚本";
+            this.btn_genNativeJson.Click += new System.EventHandler(this.btn_genNativeJson_Click);
             // 
             // FridaHookControl
             // 
@@ -365,5 +389,7 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn param0_native;
         private System.Windows.Forms.DataGridViewCheckBoxColumn param1_native;
         private System.Windows.Forms.DataGridViewCheckBoxColumn param2_native;
+        private System.Windows.Forms.ToolStripButton btn_genJavaJson;
+        private System.Windows.Forms.ToolStripButton btn_genNativeJson;
     }
 }

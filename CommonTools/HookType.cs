@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace CommonTools
 {
-    public enum ToolType
+    public enum HookType
     {
-        NULL, BASE64, AES, FRIDASCRIPT, FRIDASCRIPT_AUTO
+        JAVA, NATIVE
     }
 }

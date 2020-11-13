@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICSharpCode.TextEditor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +8,9 @@ using System.Windows.Forms;
 
 namespace CommonTools.Tools
 {
-    public class Base64Codec : BaseTool
+    public class Base64CodecTool : StripTool
     {
-
-        public Base64Codec(ToolStrip toolStrip, RichTextBox inputBox, RichTextBox outputBox) :
+        public Base64CodecTool(ToolStrip toolStrip, TextEditorControl inputBox, TextEditorControl outputBox) :
             base(toolStrip, inputBox, outputBox)
         {
             init();
@@ -41,6 +41,7 @@ namespace CommonTools.Tools
             byte[] bytes = Convert.FromBase64String(input);
             string output = Encoding.Default.GetString(bytes);
             outputBox.Text = output;
+            outputBox.Refresh();
         }
 
         private void EncodeBtn_Click(object sender, EventArgs e)
@@ -49,6 +50,7 @@ namespace CommonTools.Tools
             byte[] bytes = Encoding.Default.GetBytes(input);
             string output = Convert.ToBase64String(bytes);
             outputBox.Text = output;
+            outputBox.Refresh();
         }
 
     }

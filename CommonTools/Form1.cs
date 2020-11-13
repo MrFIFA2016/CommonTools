@@ -1,4 +1,7 @@
-﻿using CommonTools.Tools;
+﻿using CommonTools.Entity;
+using CommonTools.Tools;
+using ICSharpCode.TextEditor.Document;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -20,22 +23,12 @@ namespace CommonTools
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //foreach (TreeNode node in tools_treeView.Nodes)
-            //{
-            //    node.Expand();
-            //}
             this.tools_treeView.ExpandAll();
-			textEditorControl1.ShowEOLMarkers = false;
-			  textEditorControl1.ShowHRuler = false;
-			  textEditorControl1.ShowInvalidLines = false;
-			  textEditorControl1.ShowMatchingBracket = true;
-			  textEditorControl1.ShowSpaces = false;
-			  textEditorControl1.ShowTabs = false;
-			  textEditorControl1.ShowVRuler = false;
-			  textEditorControl1.AllowCaretBeyondEOL = false;
-			  textEditorControl1.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("JavaScript");
-			  textEditorControl1.Encoding = Encoding.GetEncoding("GB2312");
-       
+            output_txtBox.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("JavaScript");
+            output_txtBox.Encoding = Encoding.GetEncoding("GB2312");
+            
+            input_txtBox.Document.HighlightingStrategy = HighlightingStrategyFactory.CreateHighlightingStrategy("JavaScript");
+            input_txtBox.Encoding = Encoding.GetEncoding("GB2312");
         }
 
         private void tools_treeView_NodeMouseDoubleClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -50,16 +43,20 @@ namespace CommonTools
             switch (tt)
             {
                 case ToolType.BASE64:
-                    new Base64Codec(commonToolStrip, input_txtBox, output_txtBox);
+                    new Base64CodecTool(commonToolStrip, input_txtBox, output_txtBox);
                     break;
                 case ToolType.AES:
-                    new AESEncrypt(commonToolStrip, input_txtBox, output_txtBox);
+                    new AESEncryptTool(commonToolStrip, input_txtBox, output_txtBox);
                     break;
                 case ToolType.FRIDASCRIPT:
-                    new FridaStrReplacer(commonToolStrip, input_txtBox, output_txtBox, this.statusLabel1);
+                    new HookTool(commonToolStrip, input_txtBox, output_txtBox, this.statusLabel1);
+
                     FormFridaScript frm = new FormFridaScript(input_txtBox, output_txtBox);
                     frm.ScriptGenerateCompleted += Frm_ScriptGenerateCompleted;
                     frm.Show();
+                    break;
+                case ToolType.FRIDASCRIPT_AUTO:
+                    new AutoHookTool(commonToolStrip, input_txtBox, output_txtBox, this.statusLabel1);
                     break;
                 default:
                     break;
@@ -70,7 +67,6 @@ namespace CommonTools
         private void Frm_ScriptGenerateCompleted(object sender, EventArgs e)
         {
             statusLabel1.Text = "代码已生成！";
-            this.Focus();
         }
     }
 }

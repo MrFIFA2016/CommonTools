@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ICSharpCode.TextEditor;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,10 +8,10 @@ using System.Windows.Forms;
 
 namespace CommonTools.Tools
 {
-    public class FridaStrReplacer : BaseTool
+    public class HookTool : StripTool
     {
         ToolStripStatusLabel statusLabel;
-        public FridaStrReplacer(ToolStrip toolStrip, RichTextBox inputBox, RichTextBox outputBox, ToolStripStatusLabel statusLabel) : base(toolStrip, inputBox, outputBox)
+        public HookTool(ToolStrip toolStrip, TextEditorControl inputBox, TextEditorControl outputBox, ToolStripStatusLabel statusLabel) : base(toolStrip, inputBox, outputBox)
         {
             init();
             this.statusLabel = statusLabel;
@@ -45,17 +46,18 @@ namespace CommonTools.Tools
         private void Btn0_Click(object sender, EventArgs e)
         {
             inputBox.Text = "";
+            inputBox.Refresh();
         }
 
         private void Btn1_Click(object sender, EventArgs e)
         {
             outputBox.Text = "";
+            outputBox.Refresh();
         }
 
         private void Btn2_Click(object sender, EventArgs e)
         {
             outputBox.Focus();
-            outputBox.SelectAll();
             Clipboard.SetDataObject(outputBox.Text);
             statusLabel.Text = "代码已复制！共" + outputBox.Text.Length + "个字符";
         }

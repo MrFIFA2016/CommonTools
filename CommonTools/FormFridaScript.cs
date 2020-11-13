@@ -1,4 +1,7 @@
 ﻿using CommonTools.Entity;
+using ICSharpCode.TextEditor;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,44 +21,64 @@ namespace CommonTools
 
         public delegate void ScriptGenerateCompletedEventHandle(Object sender, EventArgs e);
 
-        private RichTextBox inputBox, outputBox;
-        public FormFridaScript(RichTextBox inputBox, RichTextBox outputBox)
+        private TextEditorControl inputBox;
+        private TextEditorControl outputBox;
+
+        public FormFridaScript(TextEditorControl inputBox, TextEditorControl outputBox)
         {
             InitializeComponent();
             this.inputBox = inputBox;
             this.outputBox = outputBox;
             fridaHookControl1.JavaScriptGenerateCompleted += FridaHookControl1_JavaScriptGenerateCompleted;
             fridaHookControl1.NativeScriptGenerateCompleted += FridaHookControl1_NativeScriptGenerateCompleted;
+            fridaHookControl1.JavaJsonGenerateCompleted += FridaHookControl1_JavaJsonGenerateCompleted;
+            fridaHookControl1.NativeJsonGenerateCompleted += FridaHookControl1_NativeJsonGenerateCompleted;
         }
 
-        private void FridaHookControl1_NativeScriptGenerateCompleted(object sender, UserConfigEventArgs e)
+        private void FridaHookControl1_NativeJsonGenerateCompleted(object sender, NativeConfigEventArgs e)
         {
-            int counter = 0;
-            foreach (ConfigResult cr in e.ConfigResults)
-            {
-                foreach (Dictionary<String, ParaItem> chk in cr.UserSelection)
-                {
-                    List<ParaItem> checkedItems = chk.Values.ToList();
-                    string script = CodeUtil.GenCode("native", inputBox.Text, cr.ClassName, cr.FunctionName, cr.Param, checkedItems, cr.ParamCount, counter++);
-                    outputBox.Text += "\r\n" + script;
-                }
-            }
-            ScriptGenerateCompleted?.Invoke(this, new EventArgs());
+            inputBox.Text = JsonConvert.SerializeObject(e.Config, Formatting.Indented);
         }
 
-        private void FridaHookControl1_JavaScriptGenerateCompleted(object sender, UserConfigEventArgs e)
+        private void FridaHookControl1_JavaJsonGenerateCompleted(object sender, JavaConfigEventArgs e)
+        {
+            inputBox.Text = JsonConvert.SerializeObject(e.Config, Formatting.Indented);
+        }
+
+        private void FridaHookControl1_NativeScriptGenerateCompleted(object sender, NativeConfigEventArgs e)
         {
             int counter = 0;
-            foreach (ConfigResult cr in e.ConfigResults)
+            string res = "";
+            foreach (NativeConfig cr in e.Config.ConfigList)
             {
-                foreach (Dictionary<String, ParaItem> chk in cr.UserSelection)
+                foreach (Dictionary<string, NativeParaItem> chk in cr.ParamConfig)
                 {
-                    List<ParaItem> checkedItems = chk.Values.ToList();
-                    string script = CodeUtil.GenCode("java", inputBox.Text, cr.ClassName, cr.FunctionName, cr.Param, checkedItems, cr.ParamCount, counter++);
-                    outputBox.Text += "\r\n" + script;
+                    List<Object> checkedItems = chk.Values.ToList<Object>();
+                    string script = CodeUtil.GenNativeCode(cr.ModelName, cr.Address, checkedItems, counter++);
+                    res += "\r\n" + script;
                 }
             }
-            ScriptGenerateCompleted?.Invoke(this, new EventArgs());
+            outputBox.Text = res;
+            outputBox.Refresh();
+            ScriptGenerateCompleted?.Invoke(this, e);
+        }
+
+        private void FridaHookControl1_JavaScriptGenerateCompleted(object sender, JavaConfigEventArgs e)
+        {
+            int counter = 0;
+            string res = "";
+            foreach (JavaConfig cr in e.Config.ConfigList)
+            {
+                foreach (Dictionary<string, JavaParaItem> chk in cr.ParamConfig)
+                {
+                    List<Object> checkedItems = chk.Values.ToList<Object>();
+                    string script = CodeUtil.GenJavaCode(cr.ClassName, cr.FunctionName, cr.Param, checkedItems, cr.ParamCount, counter++);
+                    res += "\r\n" + script;
+                }
+            }
+            outputBox.Text = res;
+            outputBox.Refresh();
+            ScriptGenerateCompleted?.Invoke(this, e);
         }
 
     }

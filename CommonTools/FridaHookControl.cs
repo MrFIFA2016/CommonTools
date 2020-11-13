@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using CommonTools.Entity;
+using Newtonsoft.Json.Linq;
 
 namespace CommonTools
 {
@@ -17,8 +18,11 @@ namespace CommonTools
         public event JavaScriptGenerateCompletedEventHandle JavaScriptGenerateCompleted;
         public event NativeScriptGenerateCompletedEventHandle NativeScriptGenerateCompleted;
 
-        public delegate void JavaScriptGenerateCompletedEventHandle(Object sender, UserConfigEventArgs e);
-        public delegate void NativeScriptGenerateCompletedEventHandle(Object sender, UserConfigEventArgs e);
+        public event JavaScriptGenerateCompletedEventHandle JavaJsonGenerateCompleted;
+        public event NativeScriptGenerateCompletedEventHandle NativeJsonGenerateCompleted;
+
+        public delegate void JavaScriptGenerateCompletedEventHandle(Object sender, JavaConfigEventArgs e);
+        public delegate void NativeScriptGenerateCompletedEventHandle(Object sender, NativeConfigEventArgs e);
 
         public FridaHookControl()
         {
@@ -39,8 +43,8 @@ namespace CommonTools
             if (tp == typeof(Boolean))
             {
                 if (cell.Tag == null)
-                    cell.Tag = new ParaItem();
-                ((ParaItem)cell.Tag).ValuePrint = (bool)cell.Value;
+                    cell.Tag = new JavaParaItem();
+                ((JavaParaItem)cell.Tag).ValuePrint = (bool)cell.Value;
             }
         }
 
@@ -78,8 +82,8 @@ namespace CommonTools
             if (tp == typeof(Boolean))
             {
                 if (cell.Tag == null)
-                    cell.Tag = new ParaItem();
-                ((ParaItem)cell.Tag).ValuePrint = (bool)cell.Value;
+                    cell.Tag = new NativeParaItem();
+                ((NativeParaItem)cell.Tag).ValuePrint = (bool)cell.Value;
 
                 if ((cell.Value == null || (bool)cell.Value == true) && dataGridView_Native.Columns[cell.ColumnIndex].Name.StartsWith("param"))
                 {
@@ -89,7 +93,7 @@ namespace CommonTools
                         panel = panelCache[panelName];
                     else
                     {
-                        panel = new MemPrintPanel((ParaItem)cell.Tag);
+                        panel = new MemPrintPanel((NativeParaItem)cell.Tag);
                         panelCache.Add(panelName, panel);
                     }
 
@@ -109,7 +113,8 @@ namespace CommonTools
         {
             if (JavaScriptGenerateCompleted != null)
             {
-                UserConfigEventArgs args = new UserConfigEventArgs(ConstractResults(dataGridView_Java));
+                List<JavaConfig> jConfigs = new List<JavaConfig>(ConstractResults(dataGridView_Java, HookType.JAVA).Cast<JavaConfig>());
+                JavaConfigEventArgs args = new JavaConfigEventArgs(jConfigs);
                 JavaScriptGenerateCompleted(this, args);
             }
         }
@@ -118,40 +123,63 @@ namespace CommonTools
         {
             if (NativeScriptGenerateCompleted != null)
             {
-                UserConfigEventArgs args = new UserConfigEventArgs(ConstractResults(dataGridView_Native));
+                List<NativeConfig> nConfigs = new List<NativeConfig>(ConstractResults(dataGridView_Native, HookType.NATIVE).Cast<NativeConfig>());
+                NativeConfigEventArgs args = new NativeConfigEventArgs(nConfigs);
                 NativeScriptGenerateCompleted(this, args);
             }
         }
 
-        private List<ConfigResult> ConstractResults(DataGridView grid)
+        private List<BaseConfig> ConstractResults(DataGridView grid, HookType type)
         {
             grid.EndEdit();
-            List<ConfigResult> results = new List<ConfigResult>();
+            List<BaseConfig> results = new List<BaseConfig>();
             foreach (DataGridViewRow row in grid.Rows)
             {
                 if (row.IsNewRow)
                     continue;
-
-                Dictionary<string, ParaItem> map = new Dictionary<string, ParaItem>();
 
                 string className = Convert.ToString(((DataGridViewTextBoxCell)row.Cells[0]).Value);
                 string functionName = Convert.ToString(((DataGridViewTextBoxCell)row.Cells[1]).Value);
                 string param = Convert.ToString(((DataGridViewTextBoxCell)row.Cells[2]).Value);
                 int paramCount = Convert.ToInt32(((DataGridViewTextBoxCell)row.Cells[3]).Value);
 
-                ConfigResult result = new ConfigResult(className, functionName, param, paramCount);
-
-                for (int i = 4; i < grid.Columns.Count; i++)
+                switch (type)
                 {
-                    DataGridViewColumn col = grid.Columns[i];
-                    DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)row.Cells[col.Index];
-                    if (cell.Tag == null)
-                        cell.Tag = new ParaItem();
-                    // bool checkFlag = Convert.ToBoolean(cell.Value);
-                    map.Add(col.Name, (ParaItem)cell.Tag);
+                    case HookType.JAVA:
+                        {
+                            Dictionary<string, JavaParaItem> map = new Dictionary<string, JavaParaItem>();
+                            JavaConfig result = new JavaConfig(className, functionName, param, paramCount);
+                            for (int i = 4; i < grid.Columns.Count; i++)
+                            {
+                                DataGridViewColumn col = grid.Columns[i];
+                                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)row.Cells[col.Index];
+                                if (cell.Tag == null)
+                                    cell.Tag = new JavaParaItem();
+                                map.Add(col.Name, (JavaParaItem)cell.Tag);
+                            }
+                            result.ParamConfig.Add(map);
+                            results.Add(result);
+                        }
+                        break;
+                    case HookType.NATIVE:
+                        {
+                            Dictionary<string, NativeParaItem> map = new Dictionary<string, NativeParaItem>();
+                            NativeConfig result = new NativeConfig(className, functionName);
+                            for (int i = 4; i < grid.Columns.Count; i++)
+                            {
+                                DataGridViewColumn col = grid.Columns[i];
+                                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)row.Cells[col.Index];
+                                if (cell.Tag == null)
+                                    cell.Tag = new NativeParaItem();
+                                map.Add(col.Name, (NativeParaItem)cell.Tag);
+                            }
+                            result.ParamConfig.Add(map);
+                            results.Add(result);
+                        }
+                        break;
+                    default:
+                        break;
                 }
-                result.UserSelection.Add(map);
-                results.Add(result);
             }
 
             return results;
@@ -178,7 +206,24 @@ namespace CommonTools
             }
         }
 
+        private void btn_genJavaJson_Click(object sender, EventArgs e)
+        {
+            if (JavaJsonGenerateCompleted != null)
+            {
+                List<JavaConfig> jConfigs = new List<JavaConfig>(ConstractResults(dataGridView_Java, HookType.JAVA).Cast<JavaConfig>());
+                JavaConfigEventArgs args = new JavaConfigEventArgs(jConfigs);
+                JavaJsonGenerateCompleted(this, args);
+            }
+        }
 
-
+        private void btn_genNativeJson_Click(object sender, EventArgs e)
+        {
+            if (NativeJsonGenerateCompleted != null)
+            {
+                List<NativeConfig> nConfigs = new List<NativeConfig>(ConstractResults(dataGridView_Native, HookType.NATIVE).Cast<NativeConfig>());
+                NativeConfigEventArgs args = new NativeConfigEventArgs(nConfigs);
+                NativeJsonGenerateCompleted(this, args);
+            }
+        }
     }
 }
