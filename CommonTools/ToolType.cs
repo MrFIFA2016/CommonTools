@@ -9,6 +9,6 @@ namespace CommonTools
 {
     public enum ToolType
     {
-        NULL, BASE64, AES, FRIDASCRIPT, FRIDASCRIPT_AUTO
+        NULL, BASE64, AES, FRIDASCRIPT, FRIDASCRIPT_AUTO,
     }
 }
