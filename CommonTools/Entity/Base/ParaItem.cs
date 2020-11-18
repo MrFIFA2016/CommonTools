@@ -10,5 +10,6 @@ namespace CommonTools.Entity
     {
         //protected Boolean valuePrint = false;
         //public bool ValuePrint { get => valuePrint; set => valuePrint = value; }
+        111111111111111111111111111111111111111111111111111111111111111111
     }
 }
