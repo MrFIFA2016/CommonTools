@@ -58,6 +58,7 @@ namespace CommonTools.Tools
             UserConfig<BaseConfig> config = ConfigUtil.ReadConfig(json);
             HookType type = (HookType)Enum.Parse(typeof(HookType), config.Type.ToUpper());
             int counter = 0;
+            string res = "";
             foreach (BaseConfig cr in config.ConfigList)
             {
                 switch (type)
@@ -65,35 +66,34 @@ namespace CommonTools.Tools
                     case HookType.JAVA:
                         {
                             JavaConfig result = (JavaConfig)cr;
-                            string res = "";
                             foreach (Dictionary<string, JavaParaItem> chk in result.ParamConfig)
                             {
                                 List<Object> checkedItems = chk.Values.ToList<Object>();
                                 string script = CodeUtil.GenJavaCode(result.ClassName, result.FunctionName, result.Param, checkedItems, result.ParamCount, counter++);
                                 res += "\r\n" + script;
                             }
-                            outputBox.Text = res;
-                            outputBox.Refresh();
+                           
                         }
                         break;
                     case HookType.NATIVE:
                         {
                             NativeConfig result = (NativeConfig)cr;
-                            string res = "";
                             foreach (Dictionary<string, NativeParaItem> chk in result.ParamConfig)
                             {
                                 List<Object> checkedItems = chk.Values.ToList<Object>();
                                 string script = CodeUtil.GenNativeCode(result.ModelName, result.Address, checkedItems, counter++);
                                 res += "\r\n" + script;
                             }
-                            outputBox.Text = res;
-                            outputBox.Refresh();
+                            //outputBox.Text = res;
+                            //outputBox.Refresh();
                         }
                         break;
                     default:
                         break;
                 }
             }
+            outputBox.Text = res;
+            outputBox.Refresh();
         }
 
         private void Btn0_Click(object sender, EventArgs e)
