@@ -193,15 +193,15 @@ namespace CommonTools
             if (this.tabControl1.SelectedTab.Name == "tabPage_java")
             {
                 DataGridViewCheckBoxColumn newCol = new DataGridViewCheckBoxColumn();
-                newCol.HeaderText = "参数" + maxColIndex_Java++;
-                newCol.Name = "param" + maxColIndex_Java + "_java";
+                newCol.HeaderText = "参数" + maxColIndex_Java;
+                newCol.Name = "param" + maxColIndex_Java++ + "_java";
                 this.dataGridView_Java.Columns.Add(newCol);
             }
             if (this.tabControl1.SelectedTab.Name == "tabPage_native")
             {
                 DataGridViewCheckBoxColumn newCol = new DataGridViewCheckBoxColumn();
-                newCol.HeaderText = "参数" + maxColIndex_Native++;
-                newCol.Name = "param" + maxColIndex_Native + "_native";
+                newCol.HeaderText = "参数" + maxColIndex_Native;
+                newCol.Name = "param" + maxColIndex_Native++ + "_native";
                 this.dataGridView_Native.Columns.Add(newCol);
             }
         }
